@@ -1,10 +1,19 @@
 import { CloudSun, Eraser, Moon, PlusIcon, Sun } from 'lucide-react';
 import { Button } from './Button';
 import { TasksSeparator } from './TasksSeparator';
+import { useState } from 'react';
+import { TASKS } from '../constants/tasks';
+import { TaskItem } from './TaskItem';
 
 export const Tasks = () => {
+  const [tasks, setTasks] = useState(TASKS);
+
+  const morningTasks = tasks.filter((task) => task.period === 'morning');
+  const afternoonTasks = tasks.filter((task) => task.period === 'afternoon');
+  const nightTasks = tasks.filter((task) => task.period === 'night');
+
   return (
-    <div className="w-full px-10 py-16">
+    <div className="w-full space-y-6 px-10 py-16">
       <div className="flex items-center justify-between">
         <div>
           <span className="text-xs font-semibold text-emerald-400">
@@ -32,15 +41,27 @@ export const Tasks = () => {
           <p>Manhã</p>
         </TasksSeparator>
 
+        {morningTasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
+
         <TasksSeparator>
           <CloudSun size={18} />
           <p>Tarde</p>
         </TasksSeparator>
 
+        {afternoonTasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
+
         <TasksSeparator>
           <Moon size={18} />
           <p>Noite</p>
         </TasksSeparator>
+
+        {nightTasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
       </div>
     </div>
   );
