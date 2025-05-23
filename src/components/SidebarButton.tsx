@@ -1,9 +1,12 @@
 interface SidebarButtonProps {
-  variant: 'default' | 'active';
-  children?: React.ReactNode;
+  children: React.ReactNode;
+  variant?: 'default' | 'active';
 }
 
-export const SidebarButton = ({ variant, children }: SidebarButtonProps) => {
+export const SidebarButton = ({
+  children,
+  variant = 'default',
+}: SidebarButtonProps) => {
   const getVariantClasses = () => {
     if (variant === 'active') {
       return 'bg-emerald-600 text-white hover:bg-emerald-500';

@@ -17,7 +17,7 @@ export const Sidebar = () => {
       </div>
 
       <div className="flex flex-col gap-2 px-4">
-        <SidebarButton variant="default">
+        <SidebarButton>
           <HomeIcon />
           Início
         </SidebarButton>
