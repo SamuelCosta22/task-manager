@@ -1,3 +1,5 @@
+import { Check, Loader2, SquareArrowUpRight } from 'lucide-react';
+
 interface Task {
   id: number;
   title: string;
@@ -22,9 +24,31 @@ export const TaskItem = ({ task }: TaskItemProps) => {
   };
 
   return (
-    <div className={`flex flex-col rounded-lg px-4 py-2 ${getStatusClasses()}`}>
-      <h2 className="font-semibold">{task.title}</h2>
-      <p className="ml-2 text-sm text-slate-900">{task.description}</p>
+    <div
+      className={`flex items-center justify-between gap-3 rounded-lg px-4 py-2 ${getStatusClasses()}`}
+    >
+      <div className="flex items-center gap-2">
+        <label
+          className={`relative flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg ${getStatusClasses()}`}
+        >
+          <input
+            type="checkbox"
+            checked={task.status === 'done'}
+            className="absolute h-full w-full cursor-pointer opacity-0"
+          />
+          {task.status === 'done' && <Check />}
+          {task.status === 'in_progress' && (
+            <Loader2 className="animate-spin" />
+          )}
+        </label>
+        <div className="flex flex-col">
+          <h2 className="font-semibold">{task.title}</h2>
+          <p className="text-sm text-slate-900">{task.description}</p>
+        </div>
+      </div>
+      <a href="#" className="text-slate-300 transition hover:opacity-55">
+        <SquareArrowUpRight />
+      </a>
     </div>
   );
 };

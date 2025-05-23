@@ -10,7 +10,7 @@ export const TASKS = [
     id: 2,
     title: 'Ler livro',
     description: 'Estudar para o exame',
-    status: 'in_progress',
+    status: 'done',
     period: 'afternoon',
   },
   {
