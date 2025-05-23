@@ -1,5 +1,6 @@
-import { Eraser, PlusIcon } from 'lucide-react';
+import { CloudSun, Eraser, Moon, PlusIcon, Sun } from 'lucide-react';
 import { Button } from './Button';
+import { TasksSeparator } from './TasksSeparator';
 
 export const Tasks = () => {
   return (
@@ -23,6 +24,23 @@ export const Tasks = () => {
             <Eraser size={18} />
           </Button>
         </div>
+      </div>
+
+      <div className="space-y-4 rounded-xl bg-slate-800 p-6">
+        <TasksSeparator>
+          <Sun size={18} />
+          <p>Manhã</p>
+        </TasksSeparator>
+
+        <TasksSeparator>
+          <CloudSun size={18} />
+          <p>Tarde</p>
+        </TasksSeparator>
+
+        <TasksSeparator>
+          <Moon size={18} />
+          <p>Noite</p>
+        </TasksSeparator>
       </div>
     </div>
   );
