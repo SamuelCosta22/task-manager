@@ -130,5 +130,6 @@
 
   body {
     font-family: 'Poppins', sans-serif;
+    @apply bg-slate-700;
   }
 }
