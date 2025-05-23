@@ -1,9 +1,9 @@
 interface SidebarButtonProps {
-  text: string;
   variant: 'default' | 'active';
+  children?: React.ReactNode;
 }
 
-export const SidebarButton = ({ text, variant }: SidebarButtonProps) => {
+export const SidebarButton = ({ variant, children }: SidebarButtonProps) => {
   const getVariantClasses = () => {
     if (variant === 'active') {
       return 'bg-emerald-600 text-white hover:bg-emerald-500';
@@ -15,9 +15,9 @@ export const SidebarButton = ({ text, variant }: SidebarButtonProps) => {
   return (
     <a
       href="#"
-      className={`rounded-md px-4 py-2 transition ${getVariantClasses()}`}
+      className={`flex items-center gap-2 rounded-md px-4 py-2 transition ${getVariantClasses()}`}
     >
-      {text}
+      {children}
     </a>
   );
 };
